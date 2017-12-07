@@ -47,6 +47,11 @@ PRODUCT_PACKAGES += \
     libbluetooth_qti \
     libbt-logClient.so
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
