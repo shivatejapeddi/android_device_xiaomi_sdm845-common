@@ -19,6 +19,8 @@ BOARD_VENDOR := xiaomi
 
 COMMON_PATH := device/xiaomi/sdm845-common
 
+BUILD_BROKEN_DUP_RULES := true
+
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
 # Architecture
