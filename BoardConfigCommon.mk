@@ -148,5 +148,8 @@ PRODUCT_TARGET_VNDK_VERSION := 29
 # Wifi
 DISABLE_EAP_PROXY := true
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += $(COMMON_PATH)
+
 # Inherit from the proprietary version
 -include vendor/xiaomi/sdm845-common/BoardConfigVendor.mk
