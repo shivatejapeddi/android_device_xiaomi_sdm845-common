@@ -56,6 +56,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # Display
 PRODUCT_PACKAGES += \
     libdisplayconfig \
