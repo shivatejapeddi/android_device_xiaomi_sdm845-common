@@ -47,7 +47,8 @@ PRODUCT_PACKAGES += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
-    init.qcom.rc
+    init.qcom.rc \
+    ueventd.qcom.rc
 
 # Display
 PRODUCT_PACKAGES += \
