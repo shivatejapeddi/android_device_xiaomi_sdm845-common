@@ -135,6 +135,11 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/wake_gesture"
 
+# Vendor init
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_sdm845
+TARGET_RECOVERY_DEVICE_MODULES := libinit_sdm845
+
+
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
