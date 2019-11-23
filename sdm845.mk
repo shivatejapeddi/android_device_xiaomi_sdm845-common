@@ -81,6 +81,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-rtti
 
+# PocoPref settigs modules
+PRODUCT_PACKAGES += \
+    PocoPref
+
 # Perf
 -include vendor/qcom/common/qti-vendor.mk
 

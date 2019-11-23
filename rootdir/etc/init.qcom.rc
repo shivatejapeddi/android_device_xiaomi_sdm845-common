@@ -8,3 +8,28 @@ on boot
     # DT2W
     chown system system /proc/touchpanel/wake_gesture
     chmod 0660 /proc/touchpanel/wake_gesture
+
+
+#Default
+on property:thermal.profile=0
+    write /sys/class/thermal/thermal_message/sconfig  "0"
+
+#Game
+on property:thermal.profile=1
+    write /sys/class/thermal/thermal_message/sconfig  "9"
+
+#Performance
+on property:thermal.profile=2
+    write /sys/class/thermal/thermal_message/sconfig  "10"
+
+#Video
+on property:thermal.profile=3
+    write /sys/class/thermal/thermal_message/sconfig  "11"
+
+#Video
+on property:thermal.profile=4
+    write /sys/class/thermal/thermal_message/sconfig  "12"
+
+#Video
+on property:thermal.profile=5
+    write /sys/class/thermal/thermal_message/sconfig  "13"
