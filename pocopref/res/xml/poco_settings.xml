@@ -16,4 +16,14 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="boost"
+        android:title="@string/boost_settings_title" >
+        <SwitchPreference
+            android:key="interaction.boost"
+            android:defaultValue="false"
+            android:title="@string/boost_title"
+            android:summary="@string/boost_summary" />
+  </PreferenceCategory>
+
 </PreferenceScreen>

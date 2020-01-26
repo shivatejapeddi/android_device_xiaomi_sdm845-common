@@ -133,7 +133,8 @@ TARGET_USES_MKE2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Power
-TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/wake_gesture"
+TARGET_USES_INTERACTION_BOOST := true
+#TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/wake_gesture"
 
 # Vendor init
 TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_sdm845

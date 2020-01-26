@@ -44,8 +44,9 @@ public class PocoPrefSettings extends PreferenceActivity implements OnPreference
 	private static final String TAG = "PocoPref";
 	private static final String THERMAL_KEY = "thermal";
 	private static final String THERMAL_SYSTEM_PROPERTY = "thermal.profile";
-
+        private static final String BOOST_SYSTEM_PROPERTY = "interaction.boost";
     private ListPreference mTHERMAL;
+        private SwitchPreference mEnableBOOST;
     private Context mContext;
     private SharedPreferences mPreferences;
 
@@ -54,6 +55,12 @@ public class PocoPrefSettings extends PreferenceActivity implements OnPreference
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.poco_settings);
         mContext = getApplicationContext();
+
+        mEnableBOOST = (SwitchPreference) findPreference(BOOST_SYSTEM_PROPERTY);
+        if( mEnableBOOST != null ) {
+            mEnableBOOST.setChecked(SystemProperties.getBoolean(BOOST_SYSTEM_PROPERTY, false));
+            mEnableBOOST.setOnPreferenceChangeListener(this);
+        }
 
         mTHERMAL = (ListPreference) findPreference(THERMAL_KEY);
         if( mTHERMAL != null ) {

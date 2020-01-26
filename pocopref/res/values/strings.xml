@@ -22,8 +22,8 @@
     <string name="thermal_dialogTitle">Choose your thermal profile</string>
 	
     <!-- Battery -->
-    <string name="gestures_title">Gestures</string>
-    <string name="dtw_title">Doublte Tap</string>
-    <string name="dtw_summary">Wake Devices</string>	
+    <string name="boost_settings_title">Performance</string>
+    <string name="boost_title">Interaction Boost</string>
+    <string name="boost_summary">Boost values apply when thermal profiles are changed</string>	
 
 </resources>

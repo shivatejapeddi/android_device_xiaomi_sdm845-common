@@ -96,6 +96,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     PocoPref
 
+# power
+PRODUCT_PACKAGES += \
+    power.qcom
+
 # Perf
 -include vendor/qcom/common/qti-vendor.mk
 
