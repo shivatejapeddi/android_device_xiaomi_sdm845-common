@@ -28,34 +28,30 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Properties
 -include $(LOCAL_PATH)/common-props.mk
 
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@5.0 \
-    android.hardware.audio.common@5.0 \
-    android.hardware.audio.common@5.0-util \
-    android.hardware.audio.effect@5.0 \
-    libaudio-resampler
+    audio.a2dp.default \
+    tinymix
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
-# Bluetooth
-PRODUCT_PACKAGES += \
-    libbluetooth_qti \
-    libbt-logClient.so
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0
 
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
     ueventd.qcom.rc
+
+# Codec2 modules
+PRODUCT_PACKAGES += \
+    com.android.media.swcodec \
+    libsfplugin_ccodec
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
@@ -64,7 +60,19 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     libdisplayconfig \
-    libqdMetaData.system
+    libqdMetaData.system \
+    libqdMetaData \
+    libvulkan \
+    vendor.display.config@1.0
+
+# FM
+PRODUCT_PACKAGES += \
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio
+
+PRODUCT_BOOT_JARS += \
+    qcom.fmradio
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -80,6 +88,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     org.ifaa.android.manager
 
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sdm845-tavil-snd-card_Button_Jack.kl:system/usr/keylayout/sdm845-tavil-snd-card_Button_Jack.kl
@@ -92,6 +104,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-rtti
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    lineage.livedisplay@2.0-service-sdm
+
 # PocoPref settigs modules
 PRODUCT_PACKAGES += \
     PocoPref
@@ -99,6 +115,10 @@ PRODUCT_PACKAGES += \
 # power
 PRODUCT_PACKAGES += \
     power.qcom
+
+# Net
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
 
 # Perf
 -include vendor/qcom/common/qti-vendor.mk
@@ -113,6 +133,14 @@ PRODUCT_COPY_FILES += \
 -include vendor/qcom/common/bt/qti-bt.mk
 -include vendor/qcom/common/perf/qti-perf.mk
 
+# RCS
+PRODUCT_PACKAGES += \
+    rcs_service_aidl \
+    rcs_service_aidl.xml \
+    rcs_service_api \
+    rcs_service_api.xml
+
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH)
@@ -121,6 +149,28 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     $(LOCAL_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+
+# Telephony
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    ims_ext_common.xml \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
+# TextClassifier
+PRODUCT_PACKAGES += \
+    textclassifier.bundle1
+
+#VNDK
+PRODUCT_PACKAGES += \
+    libqti_vndfwk_detect \
+    libvndfwk_detect_jni.qti
 
 # VNDK-SP
 PRODUCT_PACKAGES += \

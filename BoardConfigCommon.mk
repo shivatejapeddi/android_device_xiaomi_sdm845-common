@@ -51,15 +51,19 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-  TARGET_KERNEL_CLANG_COMPILE := true
-  TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm845
-endif
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm845
 
 # Platform
+BOARD_USES_QCOM_HARDWARE := true
+
 TARGET_BOARD_PLATFORM := sdm845
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
+OVERRIDE_QCOM_HARDWARE_VARIANT := sdm845
+
+# FM
+BOARD_HAVE_QCOM_FM := true
+BOARD_HAS_QCA_FM_SOC := "cherokee"
 
 # APEX
 DEXPREOPT_GENERATE_APEX_IMAGE := true
@@ -77,7 +81,9 @@ USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
-TARGET_USE_QTI_BT_STACK := true
+
+# Camera
+TARGET_USES_QTI_CAMERA_DEVICE := true
 
 # Charger Mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -124,6 +130,13 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 57453555712
 
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /mnt/vendor/persist:/persist \
+    /vendor/bt_firmware:/bt_firmware \
+    /vendor/dsp:/dsp \
+    /vendor/firmware_mnt:/firmware
+TARGET_COPY_OUT_PRODUCT := system/product
+TARGET_COPY_OUT_VENDOR := vendor
 
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -147,8 +160,21 @@ TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 # Sensors
 USE_SENSOR_MULTI_HAL := true
 
+# RIL
+TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+TARGET_RIL_VARIANT := caf
+
 # Sepolicy
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
+
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/private \
+    device/qcom/sepolicy/qva/private
+
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/public \
+    device/qcom/sepolicy/qva/public
+
 
 # Treble
 #BOARD_VNDK_RUNTIME_DISABLE := true
