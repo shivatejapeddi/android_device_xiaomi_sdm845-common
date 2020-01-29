@@ -428,5 +428,10 @@
     <!-- Whether to intercept inputs on screen off. -->
     <bool name="config_enableKeyHandler">true</bool>
 
+    <!-- Default value for LED on time when the battery is low on charge in miliseconds -->
+    <integer name="config_notificationsBatteryLedOn">250</integer>
+
+    <!-- Default value for LED off time when the battery is low on charge in miliseconds -->
+    <integer name="config_notificationsBatteryLedOff">509</integer>
 
 </resources>
