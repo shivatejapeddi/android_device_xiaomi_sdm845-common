@@ -24,7 +24,8 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI
+    SystemUI \
+    Launcher3QuickStep
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
