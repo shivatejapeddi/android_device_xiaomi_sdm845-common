@@ -88,6 +88,10 @@ TARGET_USES_QTI_CAMERA_DEVICE := true
 # Charger Mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+# Properties
+TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
+TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
+
 # Dex
 ifeq ($(HOST_OS),linux)
     ifneq ($(TARGET_BUILD_VARIANT),eng)
@@ -152,7 +156,6 @@ TARGET_USES_INTERACTION_BOOST := true
 # Vendor init
 TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_sdm845
 TARGET_RECOVERY_DEVICE_MODULES := libinit_sdm845
-
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"

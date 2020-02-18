@@ -25,11 +25,6 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-pa
 
-# Properties
--include $(LOCAL_PATH)/common-props.mk
-
-PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
-
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
