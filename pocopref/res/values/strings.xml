@@ -26,4 +26,8 @@
     <string name="boost_title">Interaction Boost</string>
     <string name="boost_summary">Boost values apply when thermal profiles are changed</string>	
 
+    <string name="app_settings_category">Applications Settings</string>
+    <string name="app_settings_title">Per-App Profiles</string>
+    <string name="app_settings_summary">Choose per-app settings for Battery, Performance, Thermal, brightnes etc...</string>
+
 </resources>

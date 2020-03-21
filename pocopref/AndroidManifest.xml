@@ -8,6 +8,11 @@
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <protected-broadcast android:name="com.lineageos.settings.pocopref.CUST_UPDATE" />
 
     <uses-sdk
@@ -35,6 +40,26 @@
             <meta-data
                 android:name="com.android.settings.icon"
                 android:resource="@drawable/ic_settings_pocopref" />
+        </activity>
+        <activity
+            android:name="com.lineageos.settings.pocopref.AppProfilesActivity"
+            android:exported="true"
+            android:label="@string/app_settings_title"
+            android:theme="@android:style/Theme.DeviceDefault.Settings">			
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>	
+        </activity>
+        <activity
+            android:name="com.lineageos.settings.pocopref.AppProfileActivity"
+            android:exported="true"
+            android:label="@string/app_settings_title"
+            android:theme="@android:style/Theme.DeviceDefault.Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
         </activity>
     </application>
 </manifest>

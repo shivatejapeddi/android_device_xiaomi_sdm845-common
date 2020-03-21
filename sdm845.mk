@@ -46,6 +46,9 @@ PRODUCT_COPY_FILES += \
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
+    init.performance.rc \
+    init.profiles.rc \
+    init.thermal.rc \
     ueventd.qcom.rc
 
 # Codec2 modules
