@@ -20,6 +20,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/sdm845-common/sdm845-common-vendor.mk)
 
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -34,9 +36,6 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     tinymix
 
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
 
 # Common init scripts
 PRODUCT_PACKAGES += \
